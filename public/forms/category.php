@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tag Form</title>
+    <title>Category Form</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -18,18 +18,18 @@
             background-color: #ffffff;
             padding: 40px;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             width: 350px;
         }
         .form-container h2 {
             margin-bottom: 25px;
-            color: #fbc02d; /* Changed from #00796b to yellow */
+            color: #00796b;
             text-align: center;
         }
         .form-container label {
             display: block;
             margin-bottom: 8px;
-            color: #fbc02d; /* Changed from #00796b to yellow */
+            color: #00796b;
         }
         .form-container input[type="text"] {
             width: 100%;
@@ -40,7 +40,7 @@
             box-sizing: border-box;
         }
         .form-container input[type="submit"] {
-            background-color: #fbc02d; /* Changed from #00796b to yellow */
+            background-color: #00796b;
             color: #ffffff;
             padding: 12px;
             border: none;
@@ -50,16 +50,16 @@
             font-size: 16px;
         }
         .form-container input[type="submit"]:hover {
-            background-color: #f9a825; /* Changed from #004d40 to a darker yellow */
+            background-color: #004d40;
         }
     </style>
 </head>
 <body>
     <div class="form-container">
-        <h2>Tag</h2>
+        <h2>Category</h2>
         <form action="submit_tag.php" method="post">
-            <label for="tag">Tag:</label>
-            <input type="text" id="tag" name="tag" required>
+            <label for="category">Category:</label>
+            <input type="text" id="category" name="category" required>
             <input type="submit" value="Submit">
         </form>
     </div>
