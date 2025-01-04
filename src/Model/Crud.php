@@ -34,7 +34,7 @@ class Crud
     }
 
     // UPDATE
-    static function  update($table, $data, $conditions, $params) {
+    static function update($table, $data, $conditions, $params) {
         $conn = Connexion::connection();
         $columns = '';
         foreach ($data as $key => $value) {
@@ -43,6 +43,21 @@ class Crud
         $columns = rtrim($columns, ", ");
         $query = "UPDATE $table SET $columns WHERE $conditions";
         $stmt = $conn->prepare($query);
+        foreach ($data as $key => &$value) {
+            $params[$key] = $value;
+        }
         return $stmt->execute($params);
     }
+
+
+    // DELETE
+    static function delete($table, $conditions, $params) {
+        $conn = Connexion::connection();
+        $query = "DELETE FROM $table WHERE $conditions";
+        $stmt = $conn->prepare($query);
+        return $stmt->execute($params);
+    }
+
 }
+
+

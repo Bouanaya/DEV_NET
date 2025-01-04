@@ -70,6 +70,7 @@ var_dump($categories);
                 <tr class=" border-b-4">
                     <th class="py-2 px-4 border-b-2 border-gray-300 text-left leading-tight">ID</th>
                     <th class="py-2 px-4 border-b-2 border-gray-300 text-left leading-tight">Title</th>
+                    <th class="py-2 px-4 border-b-2 border-gray-300 text-left leading-tight">Action</th>
                  
                     </tr>
             </thead>
@@ -79,8 +80,8 @@ var_dump($categories);
                         <td class="py-2 px-4 border-b border-gray-300"><?= $category['id'] ?></td>
                         <td class="py-2 px-4 border-b border-gray-300"><?= $category['name'] ?></td>
                         <td class="py-2 px-4 border-b border-gray-300 flex space-x-4">
-                            <a href="../../src/Controller/Category.php?id=<?= $category['id'] ?>" class="text-blue-400 hover:text-blue-600">Edit</a>
-                            <a href="../../src/Controller/Category.php?id=<?= $category['id'] ?>" class="text-red-400 hover:text-red-600">Delete</a>
+                            <a href="../forms/updateCategory.php?action=update&id=<?= $category['id'] ?>" class="bg-blue-400 text-white py-1 px-2 rounded hover:bg-blue-600">Edit</a>
+                            <a href="../../src/Controller/Category.php?action=delete&id=<?= $category['id'] ?>" class="bg-red-400 text-white py-1 px-2 rounded hover:bg-red-600">Delete</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
