@@ -3,7 +3,6 @@ require_once '../../vendor/autoload.php';
 use src\Controller\Category;
 $category = new Category();
 $categories = $category->getCategory();
-var_dump($categories);
 ?>
 
 
@@ -37,7 +36,6 @@ var_dump($categories);
                 <li class="px-4 py-2 hover:bg-gray-800 rounded"><a href="../pages/Admin.php" class="text-white">Dashboard</a></li>
                 <li class="px-4 py-2 hover:bg-gray-800 rounded"><a href="../Layout/articleAdmin.php" class="text-white">Articles</a></li>
                 <li class="px-4 py-2 hover:bg-gray-800 rounded"><a href="../Layout/categoryAdmin.php" class="text-sky-400">Category</a></li>
-                <li class="px-4 py-2 hover:bg-gray-800 rounded"><a href="#" class="text-white">Users</a></li>
             </ul>
         </aside>
         <!-- Content -->
@@ -51,7 +49,7 @@ var_dump($categories);
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 <!-- Card 1 -->
-                <div class="bg-white p-6 rounded-lg shadow-lg">
+                <div class="bg-[#EFF3EA] p-6 rounded-lg shadow-lg">
                     <h2 class="text-xl font-bold mb-2">Total Category</h2>
                     <p class="text-gray-700">150</p>
                 </div>
@@ -67,7 +65,7 @@ var_dump($categories);
     <div class="overflow-x-auto">
         <table class="min-w-full bg-white">
             <thead>
-                <tr class=" border-b-4">
+                <tr class=" border-b-4 bg-[#EFF3EA]">
                     <th class="py-2 px-4 border-b-2 border-gray-300 text-left leading-tight">ID</th>
                     <th class="py-2 px-4 border-b-2 border-gray-300 text-left leading-tight">Title</th>
                     <th class="py-2 px-4 border-b-2 border-gray-300 text-left leading-tight">Action</th>

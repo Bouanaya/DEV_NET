@@ -36,18 +36,18 @@
             <h1 class="text-3xl font-bold text-gray-900 mb-4">Dashboard</h1>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 <!-- Card 1 -->
-                <div class="bg-white p-6 rounded-lg shadow-lg">
+                <div class="bg-[#B1F0F7] p-6 rounded-lg shadow-lg">
                     <h2 class="text-xl font-bold mb-2">Total Articles</h2>
                     <p class="text-gray-700">150</p>
                 </div>
-                <!-- Card 2 -->
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h2 class="text-xl font-bold mb-2">Total Users</h2>
-                    <p class="text-gray-700">75</p>
-                </div>
-                <!-- Card 3 -->
-                <div class="bg-white p-6 rounded-lg shadow-lg">
+                
+                <!-- Card 2-->
+                <div class="bg-[#FAFFC5] p-6 rounded-lg shadow-lg">
                     <h2 class="text-xl font-bold mb-2">Pending Reviews</h2>
+                    <p class="text-gray-700">5</p>
+                </div>
+                <div class="bg-[#EFF3EA] p-6 rounded-lg shadow-lg">
+                    <h2 class="text-xl font-bold mb-2">Total tags</h2>
                     <p class="text-gray-700">5</p>
                 </div>
             
@@ -57,7 +57,7 @@
     <div class="overflow-x-auto">
         <table class="min-w-full bg-white">
             <thead>
-                <tr>
+                <tr class="bg-[#B1F0F7]">
                     <th class="py-2 px-4 border-b-2 border-gray-300 text-left leading-tight">ID</th>
                     <th class="py-2 px-4 border-b-2 border-gray-300 text-left leading-tight">Title</th>
                     <th class="py-2 px-4 border-b-2 border-gray-300 text-left leading-tight">Author</th>
@@ -79,6 +79,33 @@
                     <td class="py-2 px-4 border-b border-gray-300">Jane Smith</td>
                     <td class="py-2 px-4 border-b border-gray-300">2023-10-02</td>
                     <td class="py-2 px-4 border-b border-gray-300">Draft</td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<section class="flex-1 p-6">
+    <h1 class="text-3xl font-bold text-gray-900 mb-4">Articles Tags</h1>
+    <div class="overflow-x-auto">
+        <table class="min-w-full bg-white">
+            <thead>
+                <tr class="bg-[#EFF3EA]">
+                    <th class="py-2 px-4 border-b-2 border-gray-300 text-left leading-tight">ID</th>
+                    <th class="py-2 px-4 border-b-2 border-gray-300 text-left leading-tight">Title</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="py-2 px-4 border-b border-gray-300">1</td>
+                    <td class="py-2 px-4 border-b border-gray-300">Introduction to PHP</td>
+                  
+                </tr>
+                <tr>
+                    <td class="py-2 px-4 border-b border-gray-300">2</td>
+                    <td class="py-2 px-4 border-b border-gray-300">Advanced JavaScript</td>
+                    
                 </tr>
                 <!-- Add more rows as needed -->
             </tbody>

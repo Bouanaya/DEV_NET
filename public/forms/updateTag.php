@@ -1,3 +1,23 @@
+<?php
+require_once '../../vendor/autoload.php';
+use src\Controller\Tag;
+
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+
+    $tag = new Tag();
+    $tags = $tag->gettags();
+
+    echo "<pre>";
+    print_r($tags);
+    echo "</pre>";
+
+    
+
+
+//     // echo "<script>alert('Category updated successfully')</script>";
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +35,7 @@
             margin: 0;
         }
         .form-container {
-            background-color: #B1F0F7; /* Added background color */
+            background-color: #ffffff;
             padding: 40px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -23,13 +43,13 @@
         }
         .form-container h2 {
             margin-bottom: 25px;
-            color: #00796b; /* Changed back to original color */
+            color: #fbc02d; /* Changed from #00796b to yellow */
             text-align: center;
         }
         .form-container label {
             display: block;
             margin-bottom: 8px;
-            color: #00796b; /* Changed back to original color */
+            color: #fbc02d; /* Changed from #00796b to yellow */
         }
         .form-container input[type="text"] {
             width: 100%;
@@ -40,7 +60,7 @@
             box-sizing: border-box;
         }
         .form-container input[type="submit"] {
-            background-color: #00796b; /* Changed back to original color */
+            background-color: #fbc02d; /* Changed from #00796b to yellow */
             color: #ffffff;
             padding: 12px;
             border: none;
@@ -50,17 +70,21 @@
             font-size: 16px;
         }
         .form-container input[type="submit"]:hover {
-            background-color: #004d40; /* Changed back to original color */
+            background-color: #f9a825; /* Changed from #004d40 to a darker yellow */
         }
     </style>
 </head>
 <body>
     <div class="form-container">
-        <h2>Tag </h2>
+        <h2>Tag</h2>
         <form action="../../src/Controller/Tag.php" method="post">
-            <label for="tag">Tag Name</label>
-            <input type="text" id="tag" name="tags" placeholder="Enter tag" required >
-            <input type="submit" name="submit" value="Submit">
+            <?php foreach ($tags as $tag): ?>
+                <input type="hidden" name="id" value="<?= $tag['id']; ?>">
+                <label for="tag">Tag:</label>
+                <input type="text" id="tag" name="tags" value="<?= $tag['name']; ?>" required>
+            <?php endforeach; ?>
+          
+            <input type="submit" name="update" value="update">
         </form>
     </div>
 </body>

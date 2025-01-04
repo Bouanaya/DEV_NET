@@ -1,106 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create/Edit Article</title>
-    <style>
-        body {
-            background-color: #e0f7fa;
-        }
-        .containers {
-            max-width:400px;
-            margin: 2rem auto;
-            padding: 1.5rem;
-            background-color: #ffffff;
-            border-radius: 0.5rem;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-        .title {
-            font-size: 1.875rem;
-            font-weight: 700;
-            color: #0277bd;
-            margin-bottom: 1.5rem;
-        }
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        .label {
-            display: block;
-            color: #0277bd;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-        .input, .textarea, .select {
-            width: 90%;
-            padding: 0.5rem 1rem;
-            border: 1px solid #0288d1;
-            border-radius: 0.5rem;
-            outline: none;
-        }
-        .input:focus, .textarea:focus, .select:focus {
-            border-color: #01579b;
-            box-shadow: 0 0 0 2px rgba(1, 87, 155, 0.5);
-        }
-        .button {
-            padding: 0.5rem 1.5rem;
-            background-color: #0288d1;
-            color: #ffffff;
-            font-weight: 700;
-            border-radius: 0.5rem;
-            cursor: pointer;
-            border: none;
-        }
-        .button:hover {
-            background-color: #0277bd;
-        }
-        .button:focus {
-            outline: none;
-            box-shadow: 0 0 0 2px rgba(1, 87, 155, 0.5);
-        }
-        .flex-end {
-            display: flex;
-            justify-content: flex-end;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create/Edit Article</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-    <section class="containers">
-        <h2 class="title">Create/Edit Article</h2>
-        <form action="#" method="POST" class="space-y-6">
-          <div class="form-group">
-            <label for="title" class="label">Title</label>
-            <input type="text" id="title" name="title" class="input" required>
-          </div>
-          <div class="form-group">
-            <label for="slug" class="label">Slug</label>
-            <input type="text" id="slug" name="slug" class="input" required>
-          </div>
-          <div class="form-group">
-            <label for="content" class="label">Content</label>
-            <textarea id="content" name="content" rows="10" class="textarea" required></textarea>
-          </div>
-          <div class="form-group">
-            <label for="excerpt" class="label">Excerpt</label>
-            <textarea id="excerpt" name="excerpt" rows="3" class="textarea"></textarea>
-          </div>
-          <div class="form-group">
-            <label for="meta_description" class="label">Meta Description</label>
-            <input type="text" id="meta_description" name="meta_description" class="input">
-          </div>
-          <div class="form-group">
-            <label for="category_id" class="label">Category</label>
-            <select id="category_id" name="category_id" class="select">
-              <option value="1">Category 1</option>
-              <option value="2">Category 2</option>
-              <option value="3">Category 3</option>
-              <!-- Add more categories as needed -->
-            </select>
-          </div>
-          <div class="flex-end">
-            <button type="submit" class="button">Submit</button>
-          </div>
-        </form>
-    </section>
+<body class="">
+  <div class="max-w-xl mx-auto mt-12 p-6 bg-white rounded-lg shadow-md">
+    <h2 class="text-2xl font-bold text-center mb-6">Create/Edit Article</h2>
+    <form action="/submit" method="POST">
+      <div class="mb-4 ">
+        <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
+        <input type="text" id="title" name="title" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+      </div>
+      <div class="mb-4">
+        <label for="slug" class="block text-sm font-medium text-gray-700">Slug</label>
+        <input type="text" id="slug" name="slug" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+      </div>
+      <div class="mb-4">
+        <label for="content" class="block text-sm font-medium text-gray-700">Content</label>
+        <textarea id="content" name="content" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" rows="4" required></textarea>
+      </div>
+      <div class="mb-4">
+        <label for="excerpt" class="block text-sm font-medium text-gray-700">Excerpt</label>
+        <textarea id="excerpt" name="excerpt" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" rows="2"></textarea>
+      </div>
+      <div class="mb-4">
+        <label for="meta_description" class="block text-sm font-medium text-gray-700">Meta Description</label>
+        <textarea id="meta_description" name="meta_description" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" rows="2"></textarea>
+      </div>
+      <div class="mb-4">
+        <label for="featured_image" class="block text-sm font-medium text-gray-700">Featured Image</label>
+        <input type="text" id="featured_image" name="featured_image" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+      </div>
+      <div class="mb-4">
+        <label for="status" class="block text-sm font-medium text-gray-700">Status</label>
+        <select id="status" name="status" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+          <option value="draft">Draft</option>
+          <option value="published">Published</option>
+        </select>
+      </div>
+     
+      <div class="mb-4">
+        <label for="author_id" class="block text-sm font-medium text-gray-700">Author ID</label>
+        <input type="number" id="author_id" name="author_id" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+      </div>
+     
+      <button type="submit" class="w-full py-2 px-4 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700">Submit</button>
+    </form>
+  </div>
 </body>
 </html>
