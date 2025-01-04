@@ -1,3 +1,12 @@
+<?php
+require_once '../../vendor/autoload.php';
+use src\Controller\Category;
+$category = new Category();
+$categories = $category->getCategory();
+var_dump($categories);
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,7 +45,7 @@
         <section class="flex-1 p-6">
             <div class="flex justify-between items-center">
             <h1 class="text-3xl font-bold text-gray-900 mb-4">Category</h1>
-            <a href="../forms/category.php" class="bg-[#00796b] text-white p-2 rounded-md" >NEW ARTICLE</a>
+            <a href="../forms/category.php" class="bg-[#00796b] text-white p-2 rounded-md" >NEW CATEGORY</a>
             </div>
            
 
@@ -54,23 +63,27 @@
 <section class="flex-1 p-6">
     <h1 class="text-3xl font-bold text-gray-900 mb-4">Category Table</h1>
 
+
     <div class="overflow-x-auto">
         <table class="min-w-full bg-white">
             <thead>
-                <tr>
+                <tr class=" border-b-4">
                     <th class="py-2 px-4 border-b-2 border-gray-300 text-left leading-tight">ID</th>
                     <th class="py-2 px-4 border-b-2 border-gray-300 text-left leading-tight">Title</th>
-                    <th class="py-2 px-4 border-b-2 border-gray-300 text-left leading-tight">Date</th>
-                  
+                 
+                    </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td class="py-2 px-4 border-b border-gray-300">1</td>
-                    <td class="py-2 px-4 border-b border-gray-300">Introduction to PHP</td>
-                    <td class="py-2 px-4 border-b border-gray-300">2023-10-01</td>
-                </tr>
-               
-                <!-- Add more rows as needed -->
+                <?php foreach ($categories as $category) : ?>
+                    <tr>
+                        <td class="py-2 px-4 border-b border-gray-300"><?= $category['id'] ?></td>
+                        <td class="py-2 px-4 border-b border-gray-300"><?= $category['name'] ?></td>
+                        <td class="py-2 px-4 border-b border-gray-300 flex space-x-4">
+                            <a href="../../src/Controller/Category.php?id=<?= $category['id'] ?>" class="text-blue-400 hover:text-blue-600">Edit</a>
+                            <a href="../../src/Controller/Category.php?id=<?= $category['id'] ?>" class="text-red-400 hover:text-red-600">Delete</a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
             </tbody>
         </table>
     </div>

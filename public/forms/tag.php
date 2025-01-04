@@ -57,7 +57,7 @@
 <body>
     <div class="form-container">
         <h2>Tag</h2>
-        <form action="submit_tag.php" method="post">
+        <form action="../../src/Controller/Tag.php" method="post">
             <label for="tag">Tag:</label>
             <input type="text" id="tag" name="tag" required>
             <input type="submit" value="Submit">
