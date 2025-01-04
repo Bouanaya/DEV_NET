@@ -8,7 +8,7 @@
 </head>
 <body class="">
   <div class="max-w-xl mx-auto mt-12 p-6 bg-white rounded-lg shadow-md">
-    <h2 class="text-2xl font-bold text-center mb-6">Create/Edit Article</h2>
+    <h2 class="text-2xl font-bold text-center mb-6">Create Article</h2>
     <form action="/submit" method="POST">
       <div class="mb-4 ">
         <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
@@ -24,7 +24,7 @@
       </div>
       <div class="mb-4">
         <label for="excerpt" class="block text-sm font-medium text-gray-700">Excerpt</label>
-        <textarea id="excerpt" name="excerpt" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" rows="2"></textarea>
+        <input id="excerpt" name="excerpt" class="mt-1 block w-full p-2 border border-gray-300 rounded-md"></input>
       </div>
       <div class="mb-4">
         <label for="meta_description" class="block text-sm font-medium text-gray-700">Meta Description</label>
@@ -39,6 +39,16 @@
         <select id="status" name="status" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
           <option value="draft">Draft</option>
           <option value="published">Published</option>
+          <option value="scheduled">scheduled</option>
+        </select>
+      </div>
+      <div class="mb-4">
+        <label for="status" class="block text-sm font-medium text-gray-700">Tags</label>
+        <select id="status" name="status" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+          <option value="draft">Tag1</option>
+          <option value="draft">Tag1</option>
+          <option value="draft">Tag1</option>
+         
         </select>
       </div>
      
