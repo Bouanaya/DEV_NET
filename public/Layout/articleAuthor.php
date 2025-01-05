@@ -1,8 +1,12 @@
 <?php
 require_once '../../vendor/autoload.php';
-use src\Controller\Tag;
-$tag = new Tag();
-$tags = $tag->gettags();
+$table = "articles";
+use src\Controller\Articles;
+$article = new Articles();
+var_dump($article->select($table));
+$articles = $article->select("articles")
+
+
 ?>
 
 
@@ -63,8 +67,8 @@ $tags = $tag->gettags();
     <h1 class="text-3xl font-bold text-gray-900 mb-4">Article Table</h1>
 
 
-    <div class="overflow-x-auto">
-    <table class="w-full bg-white text-sm  ">
+    <div class="overflow-x-auto scroll-smooth">
+    <table class="w-full bg-white text-sm table-auto border-collapse  ">
             <thead>
                 <tr class="bg-[#B1F0F7]">
                     <th class="py-2 px-1 border-b-2 border-gray-300 text-left leading-tight">ID</th>
@@ -80,27 +84,33 @@ $tags = $tag->gettags();
                     <th class="py-2 px-1 border-b-2 border-gray-300 text-left leading-tight">author_id</th>
                     <th class="py-2 px-1 border-b-2 border-gray-300 text-left leading-tight">updated_at</th>
                     <th class="py-2 px-1 border-b-2 border-gray-300 text-left leading-tight">views</th>
-                    
+                    <th class="py-2 px-4 border-b-2 border-gray-300 text-left leading-tight">Action</th>
                     
                   
             </thead>
             <tbody>
+                <?php foreach($articles as $article):?>
                 <tr>
-                <td class="py-2 px-4 border-b border-gray-300">1</td>
-                <td class="py-2 px-4 border-b border-gray-300">introduction-to-php</td>
-                <td class="py-2 px-4 border-b border-gray-300">This is a comprehensive guide to PHP.</td>
-                <td class="py-2 px-4 border-b border-gray-300">100</td>
-                 <td class="py-2 px-4 border-b border-gray-300">2023-10-01 12:00:00</td>
-                 <td class="py-2 px-4 border-b border-gray-300">1</td>
-                 <td class="py-2 px-4 border-b border-gray-300">2023-10-01</td>
-                 <td class="py-2 px-4 border-b border-gray-300">Published</td>
-                 <td class="py-2 px-4 border-b border-gray-300">php-guide.jpg</td>
-                 <td class="py-2 px-4 border-b border-gray-300">1</td>
-                 <td class="py-2 px-4 border-b border-gray-300">Learn the basics of PHP programming.</td>
-                 <td class="py-2 px-4 border-b border-gray-300">Guide to PHP</td>
-                    <td class="py-2 px-4 border-b border-gray-300">2023-10-01</td>
+                <td class="py-2 px-4  border-b truncate border-gray-300"><?= $article['id'] ?></td>
+                <td class="py-2 px-4  border-b truncate border-gray-300"><?= $article['title'] ?></td>
+                <td class="py-2 px-4  border-b truncate border-gray-300"><?= $article['slug'] ?></td>
+                <td class="py-2 px-4  border-b truncate border-gray-300"><?= $article['content'] ?></td>
+                 <td class="py-2 px-4 border-b truncate border-gray-300"><?= $article['excerpt'] ?></td>
+                 <td class="py-2 px-4 truncate  border-b border-gray-300"><?= $article['meta_description'] ?></td>
+                 <td class="py-2 px-4  border-b truncate border-gray-300"><?= $article['category_id'] ?></td>
+                 <td class="py-2 px-4  border-b truncate border-gray-300"><?= $article['featured_image'] ?></td>
+                 <td class="py-2 px-4  border-b truncate border-gray-300"><?= $article['scheduled_date'] ?></td>
+                 <td class="py-2 px-4  border-b truncate border-gray-300"><?= $article['author_id'] ?></td>
+                 <td class="py-2 px-4  border-b truncate border-gray-300"><?= $article['content'] ?></td>
+                 <td class="py-2 px-4  border-b truncate border-gray-300"><?= $article['updated_at'] ?></td>
+                <td class="py-2 px-4  border-b truncate border-gray-300"><?= $article['views'] ?></td>
+                <td class="py-2 px-4  border-b   border-gray-300 flex space-x-4">
+                <a href="../forms/updateCategory.php?action=update&id=<?= $article['id'] ?>" class="bg-blue-400 text-white py-1 px-2 rounded hover:bg-blue-600">Edit</a>
+                <a href="../../src/Controller/Category.php?action=delete&id=<?= $article['id'] ?>" class="bg-red-400 text-white py-1 px-2 rounded hover:bg-red-600">Delete</a>
+                </td>
+
                 </tr>
-               
+               <?php endforeach ;?>
                 <!-- Add more rows as needed -->
             </tbody>
         </table>

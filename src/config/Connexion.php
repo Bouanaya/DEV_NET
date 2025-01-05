@@ -19,7 +19,7 @@ class Connexion {
                 $_ENV["DB_PASS"]
             );
             self::$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-           
+           echo "succesful";
             // return self::$conn;
         } catch (PDOException $th) {
             die("Connection failed: " . $th->getMessage());

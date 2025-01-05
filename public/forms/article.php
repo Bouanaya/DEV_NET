@@ -1,3 +1,22 @@
+<?php
+require_once '../../vendor/autoload.php';
+use src\Controller\Articles;
+
+$categorys = Articles::select("categories" );
+$tags = Articles::select("tags" );
+var_dump($tags)
+
+
+
+
+
+
+
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,20 +54,28 @@
         <input type="text" id="featured_image" name="featured_image" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
       </div>
       <div class="mb-4">
-        <label for="status" class="block text-sm font-medium text-gray-700">Status</label>
-        <select id="status" name="status" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
-          <option value="draft">Draft</option>
-          <option value="published">Published</option>
-          <option value="scheduled">scheduled</option>
-        </select>
+        <label for="Show_date" class="block text-sm font-medium text-gray-700">Show date</label>
+        <input type="datetime-local" id="Show_date" name="Show_date" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+      </div>
+      <div class="mb-4 hidden">
+        <label for="status" class="block text-sm font-medium text-gray-700 hi">Status</label>
+        <input type="text" id="status" name="status" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" value="draft" required>
       </div>
       <div class="mb-4">
-        <label for="status" class="block text-sm font-medium text-gray-700">Tags</label>
-        <select id="status" name="status" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
-          <option value="draft">Tag1</option>
-          <option value="draft">Tag1</option>
-          <option value="draft">Tag1</option>
-         
+        <label for="tags" class="block text-sm font-medium text-gray-700">Tags</label>
+        <div class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+          <?php foreach($tags as $tag) :?>
+          <label for="tag1" class="mr-4 text-blue-600"><?= $tag["name"]?></label>
+          <input type="checkbox" id="tag2" name="tags[]" value="<?= $tag["id"] ?>" class="mr-2">
+          <?php endforeach ?>
+        </div>
+      </div>
+      <div class="mb-4">
+        <label for="category" class="block text-sm font-medium text-gray-700">Category</label>
+        <select id="category" name="category" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+          <?php foreach($categorys as $category)  :?>
+          <option value="<?=$category["id"]?>"><?=$category["name"]?></option>
+          <?php endforeach ;?>
         </select>
       </div>
      

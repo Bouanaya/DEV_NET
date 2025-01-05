@@ -23,6 +23,8 @@ CREATE TABLE categories (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Create articles table with proper foreign keys
+
+drop TABLE articles;
 CREATE TABLE articles (
     id BIGINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(255) NOT NULL,
@@ -31,6 +33,7 @@ CREATE TABLE articles (
     excerpt TEXT,
     meta_description VARCHAR(160),
     category_id BIGINT NOT NULL,
+    tag_id BIGINT NOT NULL,
     featured_image VARCHAR(255),
     status ENUM('draft', 'published', 'scheduled') NOT NULL DEFAULT 'draft',
     scheduled_date DATETIME NULL,
