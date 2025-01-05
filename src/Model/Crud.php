@@ -9,10 +9,12 @@ class Crud
 
     // INSERT
      static function  insert($table, $data) {
-        var_dump($data); 
-        echo $table;
+        // var_dump($data); 
+        // echo $table;
+
         $conn =  Connexion::connection();  
         $columns = implode(", ", array_keys($data));
+        echo $columns;
         $placeholders = ":" . implode(", :", array_keys($data));
         $query = "INSERT INTO $table ($columns) VALUES ($placeholders)";
         $stmt =$conn->prepare($query);

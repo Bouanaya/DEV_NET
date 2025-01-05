@@ -1,9 +1,8 @@
 <?php
 require_once '../../vendor/autoload.php';
 $table = "articles";
-use src\Controller\Articles;
-$article = new Articles();
-var_dump($article->select($table));
+use src\Model\Article;
+$article = new Article();
 $articles = $article->select("articles")
 
 
@@ -67,7 +66,7 @@ $articles = $article->select("articles")
     <h1 class="text-3xl font-bold text-gray-900 mb-4">Article Table</h1>
 
 
-    <div class="overflow-x-auto scroll-smooth">
+    <div class="overflow-scroll scroll-smooth">
     <table class="w-full bg-white text-sm table-auto border-collapse  ">
             <thead>
                 <tr class="bg-[#B1F0F7]">
@@ -104,8 +103,8 @@ $articles = $article->select("articles")
                  <td class="py-2 px-4  border-b truncate border-gray-300"><?= $article['content'] ?></td>
                  <td class="py-2 px-4  border-b truncate border-gray-300"><?= $article['updated_at'] ?></td>
                 <td class="py-2 px-4  border-b truncate border-gray-300"><?= $article['views'] ?></td>
-                <td class="py-2 px-4  border-b   border-gray-300 flex space-x-4">
-                <a href="../forms/updateCategory.php?action=update&id=<?= $article['id'] ?>" class="bg-blue-400 text-white py-1 px-2 rounded hover:bg-blue-600">Edit</a>
+                <td class="py-2 px-4  border-b  border-gray-300 flex space-x-4">
+                <a href="../forms/updateAricle.php?action=update&id=<?= $article['id'] ?>" class="bg-blue-400 text-white py-1 px-2 rounded hover:bg-blue-600">Edit</a>
                 <a href="../../src/Controller/Category.php?action=delete&id=<?= $article['id'] ?>" class="bg-red-400 text-white py-1 px-2 rounded hover:bg-red-600">Delete</a>
                 </td>
 

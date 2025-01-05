@@ -20,7 +20,7 @@ $categories = $category->getCategory();
         <div class="container mx-auto flex justify-between items-center">
             <!-- Logo -->
             <div class="text-2xl font-bold">
-                <a href="#" class="text-white">Dashboard Admin</a>
+                <a href="#" class="text-white">Dashboard Author</a>
             </div>
             <!-- Sign Out -->
             <div class="flex space-x-4">

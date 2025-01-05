@@ -24,7 +24,7 @@ CREATE TABLE categories (
 
 -- Create articles table with proper foreign keys
 
-drop TABLE articles;
+
 CREATE TABLE articles (
     id BIGINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(255) NOT NULL,
@@ -67,3 +67,14 @@ CREATE TABLE article_tags (
     CONSTRAINT fk_article_tags_tag FOREIGN KEY (tag_id) 
         REFERENCES tags (id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+
+SELECT a.*, c.name AS category_name, u.username AS author_name, GROUP_CONCAT(t.name) AS tags
+                FROM articles a
+                LEFT JOIN categories c ON a.category_id = c.id
+                LEFT JOIN users u ON a.author_id = u.id
+                LEFT JOIN article_tags at ON a.id = at.article_id
+                LEFT JOIN tags t ON at.tag_id = t.id
+                GROUP BY a.id
+                ORDER BY a.created_at DESC
