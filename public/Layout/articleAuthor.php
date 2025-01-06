@@ -32,7 +32,7 @@ $articles = $article->select("articles")
         </div>
     </header>
     <!-- Main Section -->
-    <main class="flex">
+    <main class="flex ">
         <!-- Sidebar -->
         <aside class="bg-gray-900 w-64 min-h-screen p-4">
             <ul class="space-y-2 mt-4">

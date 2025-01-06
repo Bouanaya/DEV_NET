@@ -48,7 +48,7 @@ var_dump($article)
   <div class="max-w-xl mx-auto mt-12 p-6 bg-white rounded-lg shadow-md">
     <h2 class="text-2xl font-bold text-center mb-6">Create Article</h2>
     <form action="../../src\Controller\Articles.php" method="POST">
-    <input type="text" id="title" name="title" value="<?=$artic["id"]?>" class="mt-1  w-full p-2 border hidden border-gray-300 rounded-md" required>
+    <input type="text" id="title" name="id" value="<?=$artic["id"]?>" class="mt-1  w-full p-2 border hidden border-gray-300 rounded-md" required>
 
       <div class="mb-4 ">
         <label for="title" class="block text-sm font-medium text-gray-700">Title</label>

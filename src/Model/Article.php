@@ -103,4 +103,18 @@ class Article
             echo "Error: " . $e->getMessage();
         }
     }
+
+
+    static public function deletetagsArticle($table, $id)
+    {
+        $conn = Connexion::connection(); 
+        $sql = "DELETE FROM `$table` WHERE `article_id` = ?"; 
+        $stmt = $conn->prepare($sql); 
+        if ($stmt) {
+            $stmt->bindValue(1, $id, \PDO::PARAM_INT);
+            if ($stmt->execute()) {
+                echo 'delete succesfull';
+            } 
+    }
+  }
   }
