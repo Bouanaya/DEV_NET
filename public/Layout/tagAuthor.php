@@ -1,6 +1,6 @@
 <?php
 require_once '../../vendor/autoload.php';
-use src\Controller\Tag;
+use src\Model\Tag;
 $tag = new Tag();
 $tags = $tag->gettags();
 ?>
@@ -81,7 +81,7 @@ $tags = $tag->gettags();
                         <td class="py-2 px-4 border-b border-gray-300"><?= $tag['name'] ?></td>
                         <td class="py-2 px-4 border-b border-gray-300 flex space-x-4">
                             <a href="../forms/updateTag.php?action=update&id=<?= $tag['id'] ?>" class="bg-blue-400 text-white py-1 px-2 rounded hover:bg-blue-600">Edit</a>
-                            <a href="../../src/Controller/Tag.php?action=delete&id=<?= $tag['id'] ?>" class="bg-red-400 text-white py-1 px-2 rounded hover:bg-red-600">Delete</a>
+                            <a href="../../src/Controller/tagController.php?action=delete&id=<?= $tag['id'] ?>" class="bg-red-400 text-white py-1 px-2 rounded hover:bg-red-600">Delete</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

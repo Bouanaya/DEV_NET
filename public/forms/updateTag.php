@@ -1,19 +1,12 @@
 <?php
 require_once '../../vendor/autoload.php';
-use src\Controller\Tag;
+use src\Model\Tag;
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
     $tag = new Tag();
-    $tags = $tag->gettags();
-
-    echo "<pre>";
-    print_r($tags);
-    echo "</pre>";
-
-    
-
-
+   $tags = $tag->updatetags();
 //     // echo "<script>alert('Category updated successfully')</script>";
 }
 ?>
@@ -77,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 <body>
     <div class="form-container">
         <h2>Tag</h2>
-        <form action="../../src/Controller/Tag.php" method="post">
+        <form action="../../src/Controller/tagController.php" method="post">
             <?php foreach ($tags as $tag): ?>
                 <input type="hidden" name="id" value="<?= $tag['id']; ?>">
                 <label for="tag">Tag:</label>
