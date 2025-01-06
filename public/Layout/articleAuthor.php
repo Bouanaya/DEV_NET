@@ -38,7 +38,7 @@ $articles = $article->select("articles")
             <ul class="space-y-2 mt-4">
                 <li class="px-4 py-2 hover:bg-gray-800 rounded"><a href="../pages/Author.php" class="text-white">Dashboard</a></li>
                 <li class="px-4 py-2 hover:bg-gray-800 rounded"><a href="#" class=" text-sky-400">Articles</a></li>
-                <li class="px-4 py-2 hover:bg-gray-800 rounded"><a href="../Layout/tagAdmin.php" class="text-white">Tag</a></li>
+                <li class="px-4 py-2 hover:bg-gray-800 rounded"><a href="../../tagAuthor.php" class="text-white">Tag</a></li>
 
             </ul>
         </aside>
@@ -105,7 +105,7 @@ $articles = $article->select("articles")
                 <td class="py-2 px-4  border-b truncate border-gray-300"><?= $article['views'] ?></td>
                 <td class="py-2 px-4  border-b  border-gray-300 flex space-x-4">
                 <a href="../forms/updateAricle.php?action=update&id=<?= $article['id'] ?>" class="bg-blue-400 text-white py-1 px-2 rounded hover:bg-blue-600">Edit</a>
-                <a href="../../src/Controller/Category.php?action=delete&id=<?= $article['id'] ?>" class="bg-red-400 text-white py-1 px-2 rounded hover:bg-red-600">Delete</a>
+                <a href="../../src/Controller/Articles.php?id=<?=$article['id']?>" class="bg-red-400 text-white py-1 px-2 rounded hover:bg-red-600">Delete</a>
                 </td>
 
                 </tr>

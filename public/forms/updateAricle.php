@@ -44,10 +44,12 @@ var_dump($article)
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="">
-    <?php foreach($article as $artic)     :?>
+    <?php foreach($article as $artic) :?>
   <div class="max-w-xl mx-auto mt-12 p-6 bg-white rounded-lg shadow-md">
     <h2 class="text-2xl font-bold text-center mb-6">Create Article</h2>
     <form action="../../src\Controller\Articles.php" method="POST">
+    <input type="text" id="title" name="title" value="<?=$artic["id"]?>" class="mt-1  w-full p-2 border hidden border-gray-300 rounded-md" required>
+
       <div class="mb-4 ">
         <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
         <input type="text" id="title" name="title" value="<?=$artic["title"]?>" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
@@ -103,11 +105,11 @@ var_dump($article)
      
       <div class="mb-4 ">
         <label for="author_id" class="block text-sm font-medium text-gray-700">Author ID</label>
-        <input type="number" id="author_id" name="author_id" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
+        <input type="number" id="author_id" name="author_id" value="<?=$artic['author_id']?>" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
       </div>
 
      
-      <button type="submit" class="w-full py-2 px-4 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700">Submit</button>
+      <button type="submit" name="update" class="w-full py-2 px-4 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700">Update</button>
 
       <?php endforeach ?>
     </form>

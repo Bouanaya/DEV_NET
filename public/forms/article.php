@@ -87,7 +87,7 @@ $tags = Article::select("tags" );
         <input type="number" id="author_id" name="author_id" class="mt-1 block w-full p-2 border border-gray-300 rounded-md">
       </div>
      
-      <button type="submit" class="w-full py-2 px-4 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700">Submit</button>
+      <button type="submit" name="submit" class="w-full py-2 px-4 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700">Submit</button>
     </form>
   </div>
 </body>

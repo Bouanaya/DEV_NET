@@ -6,6 +6,20 @@ use src\Config\Connexion;
 
 class Article
 {
+
+  static public function delete($table, $id)
+  {
+      $conn = Connexion::connection(); 
+      $sql = "DELETE FROM `$table` WHERE `id` = ?"; 
+      $stmt = $conn->prepare($sql); 
+      if ($stmt) {
+          $stmt->bindValue(1, $id, \PDO::PARAM_INT);
+          if ($stmt->execute()) {
+              header("location: ../../public/Layout/articleAuthor.php");
+          } 
+  }
+}
+  
     static function select($table, $columns = "*", $conditions = null, $params = []) {
         $conn = Connexion::connection();
         $query = "SELECT $columns FROM $table";
