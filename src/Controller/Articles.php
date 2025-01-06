@@ -9,32 +9,6 @@ class Articles
   public static $tablearicle = "articles"; 
   public static $tableTags = "article_tags"; 
 
-
-  
-
-  public function updateData(){
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  
-  $data = [
-    "title"=>$_POST['title'],
-    "slug" => $_POST['slug'],
-    "content" =>$_POST['content'],
-    "excerpt" => $_POST['excerpt'],
-    "meta_description" => $_POST['meta_description'],
-    "featured_image" => $_POST['featured_image'],
-    "scheduled_date" => $_POST['Show_date'],
-    "status" => $_POST['status'] ,
-    "category_id" => $_POST['category'],
-    "author_id" =>  $_POST['author_id']
-    
-  ];
-
-  # code...
-}
-
-    
-  } 
-
   public function addData()
   {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -69,12 +43,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // header("location: ../../public/Layout/articleAuthor.php");
 
       }
-  
-  
-      // header("location: ../../../../public/index.html?hello");
-
-
-
     }
     else if(($_SERVER['REQUEST_METHOD'] === 'GET')){
     $id= $_GET['id'];

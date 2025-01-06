@@ -1,9 +1,11 @@
 <?php
-require_once '../../vendor/autoload.php';
-$table = "articles";
+require_once '../../vendor/autoload.php'; 
 use src\Model\Article;
 $article = new Article();
-$articles = $article->select("articles")
+$articles = $article->readAll();
+
+
+
 
 
 ?>
@@ -72,27 +74,34 @@ $articles = $article->select("articles")
     <table class="w-full bg-white text-sm table-auto border-collapse  ">
             <thead>
                 <tr class="bg-[#B1F0F7]">
-                    <th class="py-2 px-1 border-b-2 border-gray-300 text-left leading-tight">ID</th>
-                    <th class="py-2 px-1 border-b-2 border-gray-300 text-left leading-tight">Title</th>
-                    <th class="py-2 px-1 border-b-2 border-gray-300 text-left leading-tight">content</th>
-                    <th class="py-2 px-1 border-b-2 border-gray-300 text-left leading-tight">excerpt</th>
-                    <th class="py-2 px-1 border-b-2 border-gray-300 text-left leading-tight">meta_description</th>
-                    <th class="py-2 px-1 border-b-2 border-gray-300 text-left leading-tight">featured_image</th>
-                    <th class="py-2 px-1 border-b-2 border-gray-300 text-left leading-tight">status</th>
-                    <th class="py-2 px-4 border-b-2 border-gray-300 text-left leading-tight">Action</th>
+                    <th class="py-2 px-1 border border-gray-400 text-left leading-tight">ID</th>
+                    <th class="py-2 px-1 border border-gray-400 text-left leading-tight">Title</th>
+                    <th class="py-2 px-1 border border-gray-400 text-left leading-tight">content</th>
+                    <th class="py-2 px-1 border border-gray-400 text-left leading-tight">excerpt</th>
+                    <th class="py-2 px-1 border border-gray-400 text-left leading-tight">meta_description</th>
+                    <th class="py-2 px-1 border border-gray-400 text-left leading-tight">featured_image</th>
+                    <th class="py-2 px-1 border border-gray-400 text-left leading-tight">tags</th>
+                    <th class="py-2 px-4 border border-gray-400 text-left leading-tight">Action</th>
                     
                   
             </thead>
             <tbody>
                 <?php foreach($articles as $article):?>
                 <tr>
-                <td class="py-2 px-4  border-b truncate border-gray-300"><?= $article['id'] ?></td>
-                <td class="py-2 px-4  border-b truncate border-gray-300"><?= $article['title'] ?></td>
-                <td class="py-2 px-4  border-b truncate border-gray-300"><?= $article['content'] ?></td>
+                <td class="border border-gray-300 px-4 py-2 relative group"><?= $article['id'] ?></td>
+                <td class="border border-gray-300 px-4 py-2 relative group"><?= $article['title'] ?></td>
+                <td class="border border-gray-300 px-4 py-2 relative group"><?= $article['content'] ?></td>
                 <td class="py-2 px-4 border-b truncate border-gray-300"><?= $article['excerpt'] ?></td>
-                <td class="py-2 px-4 truncate  border-b border-gray-300"><?= $article['meta_description'] ?></td>
-                <td class="py-2 px-4  border-b truncate border-gray-300"><img src="<?= $article['featured_image'] ?>" alt="img"></td>
-                <td class="py-2 px-4  border-b truncate border-gray-300"><?= $article['status'] ?></td>
+      
+                <td class="border border-gray-300 px-4 py-2 relative group">
+          <span class="truncate block w-32">Ce...</span>
+          <span class="absolute left-0 top-full mt-1 hidden group-hover:block bg-white text-black border border-gray-300 rounded-md shadow-lg p-2 z-10">
+          <?= $article['meta_description'] ?>
+          </span>
+        </td>
+            
+                <td class="border border-gray-300 px-4 py-2 relative group"><img src="<?= $article['featured_image'] ?>" alt="img"></td>
+                <td class="border border-gray-300 px-4 py-2 relative group"><?=$article['tags']?></td>
                 <td class="py-2 px-4  border-b  border-gray-300 flex space-x-4">
                 <a href="../forms/updateAricle.php?action=update&id=<?= $article['id'] ?>" class="bg-blue-400 text-white py-1 px-2 rounded hover:bg-blue-600">Edit</a>
                 <a href="../../src/Controller/Articles.php?id=<?=$article['id']?>" class="bg-red-400 text-white py-1 px-2 rounded hover:bg-red-600">Delete</a>
