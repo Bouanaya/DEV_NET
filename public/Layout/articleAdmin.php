@@ -1,3 +1,15 @@
+<?php
+require_once '../../vendor/autoload.php';
+use src\Model\Article;
+$redall = Article::readAll();
+
+var_dump($redall)
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +35,7 @@
     <!-- Main Section -->
     <main class="flex">
         <!-- Sidebar -->
-        <aside class="bg-gray-900 w-64 min-h-screen p-4">
+        <aside class="bg-gray-900  min-h-screen p-4">
             <ul class="space-y-2 mt-4">
                 <li class="px-4 py-2 hover:bg-gray-800 rounded"><a href="../pages/Admin.php" class="text-white">Dashboard</a></li>
                 <li class="px-4 py-2 hover:bg-gray-800 rounded"><a href="../Layout/articleAdmin.php" class="text-sky-400">Articles</a></li>
@@ -63,6 +75,7 @@
                     <th class="py-2 px-1 border-b-2 border-gray-300 text-left leading-tight">scheduled_date</th>
                     <th class="py-2 px-1 border-b-2 border-gray-300 text-left leading-tight">author_id</th>
                     <th class="py-2 px-1 border-b-2 border-gray-300 text-left leading-tight">updated_at</th>
+                    <th class="py-2 px-1 border-b-2 border-gray-300 text-left leading-tight">views</th>
                     <th class="py-2 px-1 border-b-2 border-gray-300 text-left leading-tight">views</th>
                     
                     

@@ -31,15 +31,16 @@ $categories = $category->getCategory();
     <!-- Main Section -->
     <main class="flex">
         <!-- Sidebar -->
-        <aside class="bg-gray-900 w-64 min-h-screen p-4">
+        <aside class="bg-gray-900  min-h-screen p-4">
             <ul class="space-y-2 mt-4">
-                <li class="px-4 py-2 hover:bg-gray-800 rounded"><a href="../pages/Admin.php" class="text-white">Dashboard</a></li>
-                <li class="px-4 py-2 hover:bg-gray-800 rounded"><a href="../Layout/articleAdmin.php" class="text-white">Articles</a></li>
+            <li class="px-4 py-2 hover:bg-gray-800 rounded"><a href="../../public/pages/Author.php" class="text-white">Dashboard</a></li>
+                <li class="px-4 py-2 hover:bg-gray-800 rounded"><a href="../Layout/articleAuthor.php" class="text-white">Articles</a></li>
+                <li class="px-4 py-2 hover:bg-gray-800 rounded"><a href="../Layout/tagAuthor.php" class="text-white">tags</a></li>
                 <li class="px-4 py-2 hover:bg-gray-800 rounded"><a href="../Layout/categoryAdmin.php" class="text-sky-400">Category</a></li>
             </ul>
         </aside>
         <!-- Content -->
-    <div class="block w-3/4">
+    <div class="block w-full ">
         <section class="flex-1 p-6">
             <div class="flex justify-between items-center">
             <h1 class="text-3xl font-bold text-gray-900 mb-4">Category</h1>
@@ -63,7 +64,7 @@ $categories = $category->getCategory();
 
 
     <div class="overflow-x-auto">
-        <table class="min-w-full bg-white">
+        <table class=" bg-white">
             <thead>
                 <tr class=" border-b-4 bg-[#EFF3EA]">
                     <th class="py-2 px-4 border-b-2 border-gray-300 text-left leading-tight">ID</th>

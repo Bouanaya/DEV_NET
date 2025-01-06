@@ -6,8 +6,8 @@ use src\Model\Article;
 
 class Articles
 {
-  static $tablearicle = "articles"; 
-  static $tableTags = "article_tags"; 
+  public static $tablearicle = "articles"; 
+  public static $tableTags = "article_tags"; 
 
 
   
@@ -59,12 +59,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         Article::insert(self::$tablearicle , $data, $tages  );
       }
       else if(isset($_POST['update'])){
-        // var_dump($_POST["id"]);
-        // var_dump($data ) ;
-        // var_dump($tages);
+        var_dump($_POST["id"]);
+        var_dump($data ) ;
+        var_dump($tages);
         $id = $_POST["id"];
+        Article::update(Articles::$tablearicle,$data,"id = $id",[]);
         Article::deletetagsArticle(Articles::$tableTags,$id);
-
+        Article::insertags($tages, $id);
+        // header("location: ../../public/Layout/articleAuthor.php");
 
       }
   
