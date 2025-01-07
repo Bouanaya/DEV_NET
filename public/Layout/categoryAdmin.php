@@ -3,9 +3,6 @@ require_once '../../vendor/autoload.php';
 use src\Controller\CategoryCountroller;
 $category = new CategoryCountroller();
 $categories = $category->getCategory();
-var_dump($categories)
-
- 
 ?>
 
 

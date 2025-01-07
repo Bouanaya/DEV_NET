@@ -1,7 +1,6 @@
 <?php
 namespace src\Controller;
 require_once '../../vendor/autoload.php';
-
 use src\Model\Article;
 
 class Articles
@@ -9,12 +8,33 @@ class Articles
   public static $tablearicle = "articles"; 
   public static $tableTags = "article_tags"; 
 
+  public  function slugify($text, string $divider = '-')
+  {
+ 
+    $text = preg_replace('~[^\pL\d]+~u', $divider, $text);
+    $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
+    $text = preg_replace('~[^-\w]+~', '', $text);
+    $text = trim($text, $divider);
+    $text = preg_replace('~-+~', $divider, $text);
+    $text = strtolower($text);
+    if (empty($text)) {
+      return 'n-a';
+    }
+  
+    return $text;
+  }
+
+  
+
   public function addData()
   {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+   
+ 
+     
       $data = [
         "title"=>$_POST['title'],
-        "slug" => $_POST['slug'],
+        "slug" => $this->slugify($_POST['title']) ,
         "content" =>$_POST['content'],
         "excerpt" => $_POST['excerpt'],
         "meta_description" => $_POST['meta_description'],
@@ -33,9 +53,6 @@ class Articles
         Article::insert(self::$tablearicle , $data, $tages  );
       }
       else if(isset($_POST['update'])){
-        var_dump($_POST["id"]);
-        var_dump($data ) ;
-        var_dump($tages);
         $id = $_POST["id"];
         Article::update(Articles::$tablearicle,$data,"id = $id",[]);
         Article::deletetagsArticle(Articles::$tableTags,$id);
@@ -46,7 +63,6 @@ class Articles
     }
     else if(($_SERVER['REQUEST_METHOD'] === 'GET')){
     $id= $_GET['id'];
-echo  $id;
 Article::delete(self::$tablearicle , $id);
 
     }
@@ -57,6 +73,7 @@ Article::delete(self::$tablearicle , $id);
   $add = new Articles();
   $add->addData(); 
 
+ 
  
 
 

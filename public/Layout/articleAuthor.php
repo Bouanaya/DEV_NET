@@ -8,6 +8,8 @@ $articles = $article->readAll();
 
 
 
+
+
 ?>
 
 
@@ -59,6 +61,7 @@ $articles = $article->readAll();
                 <!-- Card 1 -->
                 <div class="bg-[#B1F0F7] p-6 rounded-lg shadow-lg">
                     <h2 class="text-xl font-bold mb-2">Total Article</h2>
+
                     <p class="text-gray-700">150</p>
                 </div>
               
