@@ -1,8 +1,13 @@
 <?php
-require_once '../../vendor/autoload.php'; 
+require_once '../../vendor/autoload.php';
+
+use src\Controller\Articles;
 use src\Model\Article;
 $article = new Article();
 $articles = $article->readAll();
+
+
+
 
 
 

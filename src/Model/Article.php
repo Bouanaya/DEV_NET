@@ -20,7 +20,7 @@ class Article
   }
 }
   
-    static function select($table, $columns = "*", $conditions = null, $params = []) {
+    public static function select($table, $columns = "*", $conditions = null, $params = []) {
         $conn = Connexion::connection();
         $query = "SELECT $columns FROM $table";
         if ($conditions) {

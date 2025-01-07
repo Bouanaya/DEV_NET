@@ -1,3 +1,22 @@
+<?php
+require_once '../../vendor/autoload.php';
+
+use src\Model\Article;
+
+$redall = Article::readAll();
+
+$red = Article::select("articles","count(*)");
+$tags = Article::select("tags","count(*)");
+
+
+
+ 
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,18 +57,26 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 <!-- Card 1 -->
                 <div class="bg-[#B1F0F7] p-6 rounded-lg shadow-lg">
+
                     <h2 class="text-xl font-bold mb-2">Total Articles</h2>
-                    <p class="text-gray-700">150</p>
+                    <?php foreach($red as $re):
+                    ?>
+                    <p class="text-gray-700"><?= $re['count(*)'] ?></p>
+
+                    <?php endforeach ?>
                 </div>
-                
+            
                 <!-- Card 2-->
                 <div class="bg-[#FAFFC5] p-6 rounded-lg shadow-lg">
                     <h2 class="text-xl font-bold mb-2">Pending Reviews</h2>
                     <p class="text-gray-700">5</p>
                 </div>
                 <div class="bg-[#EFF3EA] p-6 rounded-lg shadow-lg">
+                    <?php
+                    foreach($tags as $tag)
+                    ?>
                     <h2 class="text-xl font-bold mb-2">Total tags</h2>
-                    <p class="text-gray-700">5</p>
+                    <p class="text-gray-700"><?= $tag["count(*)"]  ?></p>
                 </div>
             
         </section>

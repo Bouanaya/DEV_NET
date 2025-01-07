@@ -8,6 +8,9 @@ class Articles
   public static $tablearicle = "articles"; 
   public static $tableTags = "article_tags"; 
 
+
+
+
   public  function slugify($text, string $divider = '-')
   {
  
@@ -67,6 +70,16 @@ Article::delete(self::$tablearicle , $id);
 
     }
   }
+
+public static function reddCount(){
+
+   Article::select("articles","COUNT(*)");
+
+    
+}
+
+
+
 }
 
 
