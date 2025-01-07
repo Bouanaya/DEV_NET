@@ -1,11 +1,11 @@
 <?php
 require_once '../../vendor/autoload.php';
-use src\Controller\Category;
+use src\Controller\CategoryCountroller;
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
-    $category = new Category();
-    $categories = $category->updateCategory();
+    $category = new CategoryCountroller();
+    $categories = $category->selectcategory();
 
     
 
@@ -75,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 <body>
     <div class="form-container">
         <h2>Category</h2>
-        <form action="../../src/Controller/Category.php"method="post">
+        <form action="../../src/Controller/CategoryCountroller.php"method="post">
             <?php foreach ($categories as $category) : ?>
                 <input type="hidden" name="id" value="<?= $category['id'] ?>">
                 <label for="category">Update Category:</label>

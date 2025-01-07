@@ -31,7 +31,7 @@ class Tag
             $id = $_GET['id'];
             $tags = Crud::select($this->table, '*', 'id=:id', ['id' => $id]);
             return $tags;
-        }
+        };
 
         if (isset($_POST['update'])) {
             $id = $_POST['id'];

@@ -57,7 +57,7 @@
 <body>
     <div class="form-container">
         <h2>Category</h2>
-        <form action="../../src/Controller/Category.php"method="post">
+        <form action="../../src/Controller/CategoryCountroller.php"method="post">
             <label for="category">Category:</label>
             <input type="text" id="category" name="category" required>
             <input type="submit" name="submit" value="Submit">
