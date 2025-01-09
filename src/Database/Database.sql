@@ -7,13 +7,14 @@ USE devblog_db;
 
 
 -- Create users table first
+
 CREATE TABLE users (
     id BIGINT PRIMARY KEY AUTO_INCREMENT,
     username VARCHAR(20) NOT NULL UNIQUE,
     email VARCHAR(255) NOT NULL UNIQUE,
     password_hash VARCHAR(255) NOT NULL,
     bio TEXT,
-    role ENUM('Admin', 'Auteur') NOT NULL DEFAULT 'Admin'
+    role ENUM('Admin', 'Auteur','user') NOT NULL DEFAULT 'user'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Create categories table

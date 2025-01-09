@@ -13,31 +13,16 @@
             <p class="mt-2 text-sm text-gray-600">Remplissez le formulaire ci-dessous</p>
         </div>
 
-        <form class="space-y-4">
-            <!-- Prénom -->
-            <div>
-                <label for="firstName" class="block text-sm font-medium text-gray-700">
-                    Prénom
-                </label>
-                <input 
-                    type="text" 
-                    id="firstName" 
-                    name="firstName" 
-                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    placeholder="Entrez votre prénom"
-                    required
-                >
-            </div>
-
+        <form class="space-y-4" method="post" action="../../src/Controller/SignUp.php">
             <!-- Nom -->
             <div>
-                <label for="lastName" class="block text-sm font-medium text-gray-700">
-                    Nom
+                <label for="FullName" class="block text-sm font-medium text-gray-700">
+                    FullName
                 </label>
                 <input 
                     type="text" 
-                    id="lastName" 
-                    name="lastName" 
+                    id="FullName" 
+                    name="FullName" 
                     class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                     placeholder="Entrez votre nom"
                     required
@@ -54,7 +39,7 @@
                     id="email" 
                     name="email" 
                     class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    placeholder="vous@exemple.com"
+                    placeholder="bouanaya@exemple.com"
                     required
                 >
             </div>
@@ -124,7 +109,7 @@
         <div class="text-center text-sm">
             <p class="text-gray-600">
                 Déjà un compte? 
-                <a href="#" class="font-medium text-blue-600 hover:text-blue-500">
+                <a href="signIn.php" class="font-medium text-blue-600 hover:text-blue-500">
                     Se connecter
                 </a>
             </p>

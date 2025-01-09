@@ -1,17 +1,22 @@
+<?php
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="./css/tailwind.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
   <title>DevTo</title>
   <style>
     body {
       background-color: #f0f2f5;
     }
-    .header {
-      background: linear-gradient(90deg, #4267B2, #365899);
-    }
+
     .header a {
       color: white;
     }
@@ -35,18 +40,26 @@
 </head>
 <body>
   <!-- Header Section -->
-  <header class="header text-white animation-slideDown">
+  <header class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white animation-slideDown">
     <div class="container mx-auto flex justify-between items-center p-4">
       <!-- Logo -->
       <div class="text-2xl font-bold animation-fadeIn">
-        <a href="index.html">Dev.to</a>
+        <a href="index.php">Dev.to</a>
       </div>
       <!-- Navigation -->
       <nav class="flex items-center space-x-4 animation-fadeIn">
         <!-- Sign In and Sign Up -->
         <div class="flex space-x-4">
-          <a href="#" class="bg-gray-200  px-3 py-1 rounded hover:bg-gray-300">Sign In</a>
-          <a href="#" class="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700">Sign Up</a>
+          <?php
+          if(isset($_SESSION['role']) ){
+            echo '<a href="../src/auth/signOut.php"  class="bg-red-400 text-white px-3 py-1 rounded hover:bg-red-600">Sign Out</a>';
+          }
+          else{
+            echo  '<a href="../public/Layout/signIn.php" class="bg-gray-200  px-3 py-1 rounded hover:bg-gray-300">Sign In</a>';
+            echo '<a href="../public/Layout/signUp.php" class="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700">Sign Up</a>';
+          }
+          ?>
+         
         </div>
       </nav>
     </div>
@@ -70,7 +83,6 @@
           <h2 class="text-3xl font-bold text-gray-800 mb-4">
             Latest Articles
           </h2>
-          <a href="#" class="bg-blue-600 text-white px-3 py-1 items-center rounded hover:bg-blue-700 mb-4">CREATE ARTICLE</a>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           <!-- Article Card 1 -->
@@ -94,7 +106,7 @@
     </section>
   </main>
 <!-- Footer Section -->
-<footer class="bg-gray-800 text-white py-4">
+<footer class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white py-4">
   <div class="container mx-auto text-center">
     <p>&copy; 2023 DevTo. All rights reserved.</p>
    

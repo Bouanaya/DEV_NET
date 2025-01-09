@@ -17,7 +17,7 @@
         </div>
 
    
-        <form class="space-y-6">
+        <form class="space-y-6" method="post" action="../../src/Controller/SignIn.php">
         
             <div>
                 <label for="email" class="block text-sm font-medium text-gray-700">
@@ -28,7 +28,7 @@
                     id="email" 
                     name="email" 
                     class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    placeholder="vous@exemple.com"
+                    placeholder="bouanaya@exemple.com"
                     required
                 >
             </div>
@@ -89,7 +89,7 @@
 
         <!-- Boutons de connexion sociale -->
         <div class="grid grid-cols-2 gap-3">
-            <button class="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-gradient-to-r from-red-500 via-yellow-500 to-green-500 text-sm font-medium text-gray-500 hover:bg-gray-50">
+            <button class="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-red-500 text-sm font-medium text-white hover:bg-gray-50">
                 <span class="sr-only">Se connecter avec Google</span>
                 Google
             </button>
@@ -103,7 +103,7 @@
         <div class="text-center text-sm">
             <p class="text-gray-600">
                 Pas encore de compte ?
-                <a href="#" class="font-medium text-blue-600 hover:text-blue-500">
+                <a href="signUp.php" class="font-medium text-blue-600 hover:text-blue-500">
                     S'inscrire
                 </a>
             </p>

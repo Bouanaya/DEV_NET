@@ -7,6 +7,7 @@ $redall = Article::readAll();
 
 $red = Article::select("articles","count(*)");
 $tags = Article::select("tags","count(*)");
+session_start();
 
 
 
@@ -35,7 +36,7 @@ $tags = Article::select("tags","count(*)");
             </div>
             <!-- Sign Out -->
             <div class="flex space-x-4">
-                <a href="../index.html" class="hover:text-yellow-400">Sign Out</a>
+                <!-- <a href="../index.php" class="hover:text-yellow-400">Sign Out</a> -->
             </div>
         </div>
     </header>
@@ -44,18 +45,36 @@ $tags = Article::select("tags","count(*)");
         <!-- Sidebar -->
         <aside class="bg-gray-900 w-64 min-h-screen p-4">
             <ul class="space-y-2 mt-4">
-                <li class="px-4 py-2 hover:bg-gray-800 rounded"><a href="#" class="text-sky-400">Dashboard</a></li>
-                <li class="px-4 py-2 hover:bg-gray-800 rounded"><a href="../Layout/articleAuthor.php" class="text-white">Articles</a></li>
-                <li class="px-4 py-2 hover:bg-gray-800 rounded"><a href="../Layout/tagAuthor.php" class="text-white">tags</a></li>
-                <li class="px-4 py-2 hover:bg-gray-800 rounded"><a href="../Layout/categoryAdmin.php" class="text-white">Category</a></li>
+                <?php
+                if ($_SESSION['role']== "Admin" ) {
+                   echo '<li class="px-4 py-2 hover:bg-gray-800 rounded"><a href="#" class="text-sky-400">Dashboard</a></li>';
+                  echo'  <li class="px-4 py-2 hover:bg-gray-800 rounded"><a href="../Layout/tagAuthor.php" class="text-white">tags</a></li>';
+         
+                    
+                }
+                if ($_SESSION['role'] == "Auteur") {
+                echo '<li class="px-4 py-2 hover:bg-gray-800 rounded"><a href="#" class="text-sky-400">Dashboard</a></li>';
+                echo '<li class="px-4 py-2 hover:bg-gray-800 rounded"><a href="../Layout/articleAuthor.php" class="text-white">Articles</a></li>';
+                echo '<li class="px-4 py-2 hover:bg-gray-800 rounded"><a href="../Layout/categoryAdmin.php" class="text-white">Category</a></li>';
+                    # code...
+                }
+                
+                
+                ?>
+                
             </ul>
         </aside>
         <!-- Content -->
     <div class="block w-3/4">
         <section class="flex-1 p-6">
-            <h1 class="text-3xl font-bold text-gray-900 mb-4">Dashboard</h1>
+            <h1 class="text-3xl font-bold text-gray-900 mb-4">Dashboard <?php
+            if ($_SESSION['username']) {
+               
+                echo  $_SESSION['username'];
+            }
+            ?></h1>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                <!-- Card 1 -->
+               
                 <div class="bg-[#B1F0F7] p-6 rounded-lg shadow-lg">
 
                     <h2 class="text-xl font-bold mb-2">Total Articles</h2>
@@ -66,7 +85,7 @@ $tags = Article::select("tags","count(*)");
                     <?php endforeach ?>
                 </div>
             
-                <!-- Card 2-->
+                
                 <div class="bg-[#FAFFC5] p-6 rounded-lg shadow-lg">
                     <h2 class="text-xl font-bold mb-2">Pending Reviews</h2>
                     <p class="text-gray-700">5</p>
@@ -108,7 +127,7 @@ $tags = Article::select("tags","count(*)");
                     <td class="py-2 px-4 border-b border-gray-300">2023-10-02</td>
                     <td class="py-2 px-4 border-b border-gray-300">Draft</td>
                 </tr>
-                <!-- Add more rows as needed -->
+               
             </tbody>
         </table>
     </div>
@@ -135,7 +154,7 @@ $tags = Article::select("tags","count(*)");
                     <td class="py-2 px-4 border-b border-gray-300">Advanced JavaScript</td>
                     
                 </tr>
-                <!-- Add more rows as needed -->
+           
             </tbody>
         </table>
     </div>
